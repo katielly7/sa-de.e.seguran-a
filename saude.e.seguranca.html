@@ -1,0 +1,1013 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Saúde & Segurança na Escola</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #eef4f7;
+    color: #263238;
+    transition: 0.3s;
+}
+
+/* ===== CABEÇALHO ===== */
+
+header {
+    background: linear-gradient(135deg, #075985, #0891b2);
+    color: white;
+    padding: 55px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+/* ===== MENU ===== */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: white;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 3px 15px #0002;
+}
+
+nav a {
+    color: #075985;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 12px;
+}
+
+nav a:hover {
+    color: #0891b2;
+}
+
+/* ===== CONTAINER ===== */
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+.titulo {
+    text-align: center;
+    color: #075985;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #607d8b;
+    margin-bottom: 30px;
+}
+
+/* ===== CARDS ===== */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px #0001;
+    border-top: 5px solid #0891b2;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card .icone {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #075985;
+    margin-bottom: 10px;
+}
+
+.card p {
+    line-height: 1.6;
+}
+
+/* ===== PAINEL ===== */
+
+.painel {
+    background: linear-gradient(135deg, #075985, #0891b2);
+    color: white;
+    border-radius: 22px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 8px 25px #0002;
+}
+
+.painel h2 {
+    margin-bottom: 20px;
+}
+
+.status {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.status div {
+    background: #ffffff22;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.numero {
+    display: block;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* ===== SITUAÇÕES ===== */
+
+.situacao {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px #0001;
+    text-align: center;
+}
+
+.situacao h3 {
+    color: #075985;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.opcoes button,
+.quiz button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border: 2px solid #d5e3e8;
+    background: #f8fbfc;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: left;
+    transition: 0.2s;
+}
+
+.opcoes button:hover,
+.quiz button:hover {
+    background: #e0f2fe;
+    border-color: #0891b2;
+}
+
+#respostaSituacao {
+    margin-top: 20px;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 12px;
+    display: none;
+}
+
+/* ===== QUIZ ===== */
+
+.quiz {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px #0001;
+}
+
+.questao {
+    margin-bottom: 30px;
+}
+
+.questao h3 {
+    color: #075985;
+    margin-bottom: 15px;
+}
+
+#resultadoQuiz {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+.btnPrincipal {
+    display: block;
+    margin: 20px auto;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    background: #075985;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btnPrincipal:hover {
+    background: #0891b2;
+}
+
+/* ===== CHECKLIST ===== */
+
+.checklist {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px #0001;
+}
+
+.check-item {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.check-item label {
+    cursor: pointer;
+}
+
+#segurancaResultado {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* ===== EMERGÊNCIA ===== */
+
+.emergencia {
+    background: #fff1f2;
+    border: 2px solid #ef4444;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.emergencia h2 {
+    color: #b91c1c;
+    margin-bottom: 15px;
+}
+
+.botaoEmergencia {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 16px 30px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#alerta {
+    display: none;
+    margin-top: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    line-height: 1.7;
+}
+
+/* ===== MODO ESCURO ===== */
+
+.dark {
+    background: #101820;
+    color: #e5e7eb;
+}
+
+.dark nav,
+.dark .card,
+.dark .situacao,
+.dark .quiz,
+.dark .checklist {
+    background: #1e293b;
+    color: #e5e7eb;
+}
+
+.dark .titulo,
+.dark .card h3,
+.dark .situacao h3,
+.dark .questao h3 {
+    color: #67e8f9;
+}
+
+.dark .subtitulo {
+    color: #cbd5e1;
+}
+
+.dark .opcoes button,
+.dark .quiz button {
+    background: #334155;
+    color: white;
+    border-color: #475569;
+}
+
+/* ===== RODAPÉ ===== */
+
+footer {
+    background: #17232c;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+footer p {
+    margin: 7px;
+}
+
+/* ===== RESPONSIVO ===== */
+
+@media (max-width: 700px) {
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 7px;
+    }
+
+    .status {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== CABEÇALHO ===== -->
+
+<header>
+    <h1>🏫 Saúde & Segurança na Escola</h1>
+    <p>Aprender a prevenir também é uma forma de cuidar.</p>
+</header>
+
+<!-- ===== MENU ===== -->
+
+<nav>
+    <a href="#inicio">Início</a>
+    <a href="#saude">Saúde</a>
+    <a href="#seguranca">Segurança</a>
+    <a href="#situacoes">Situações</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#checklist">Checklist</a>
+</nav>
+
+<div class="container">
+
+<!-- ===== INÍCIO ===== -->
+
+<section id="inicio">
+
+    <h2 class="titulo">🛡️ Centro de Segurança Escolar</h2>
+
+    <p class="subtitulo">
+        Um espaço interativo para aprender atitudes de prevenção e cuidado.
+    </p>
+
+    <div class="painel">
+
+        <h2>📊 Painel da Escola</h2>
+
+        <div class="status">
+
+            <div>
+                <span class="numero" id="pontos">0</span>
+                Pontos
+            </div>
+
+            <div>
+                <span class="numero" id="acoes">0</span>
+                Ações
+            </div>
+
+            <div>
+                <span class="numero" id="nivel">Iniciante</span>
+                Nível
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===== SAÚDE ===== -->
+
+<section id="saude">
+
+    <h2 class="titulo">❤️ Saúde na Escola</h2>
+
+    <p class="subtitulo">
+        Hábitos simples ajudam a manter um ambiente escolar mais saudável.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icone">🧼</div>
+            <h3>Higiene</h3>
+            <p>
+                Lavar as mãos e manter os ambientes limpos ajuda na prevenção
+                de doenças e na manutenção de um espaço saudável.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icone">💧</div>
+            <h3>Hidratação</h3>
+            <p>
+                Beber água regularmente é importante para o funcionamento
+                adequado do organismo.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icone">🧠</div>
+            <h3>Saúde Mental</h3>
+            <p>
+                Conversar com pessoas de confiança e procurar ajuda quando
+                necessário também faz parte dos cuidados com a saúde.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icone">🏃</div>
+            <h3>Movimento</h3>
+            <p>
+                Atividades físicas adequadas podem contribuir para o bem-estar
+                físico e social.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===== SEGURANÇA ===== -->
+
+<section id="seguranca">
+
+    <h2 class="titulo">🚨 Segurança Escolar</h2>
+
+    <p class="subtitulo">
+        Conhecer os riscos ajuda a prevenir acidentes.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icone">🔥</div>
+            <h3>Incêndio</h3>
+            <p>
+                Em uma emergência, siga as orientações dos responsáveis,
+                mantenha a calma e utilize as rotas de saída indicadas.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icone">⚡</div>
+            <h3>Eletricidade</h3>
+            <p>
+                Não mexa em tomadas, fios ou equipamentos elétricos danificados.
+                Avise imediatamente um adulto responsável.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icone">🚪</div>
+            <h3>Evacuação</h3>
+            <p>
+                Em uma evacuação, siga as instruções da escola e não volte
+                para buscar objetos pessoais.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icone">👥</div>
+            <h3>Convivência</h3>
+            <p>
+                Respeito, diálogo e comunicação de situações de risco ajudam
+                a manter a comunidade escolar mais segura.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===== SIMULADOR ===== -->
+
+<section id="situacoes">
+
+    <h2 class="titulo">🎮 Simulador de Situações</h2>
+
+    <p class="subtitulo">
+        Escolha o que você faria em cada situação.
+    </p>
+
+    <div class="situacao">
+
+        <h3>🚪 Você percebe que o piso do corredor está molhado.</h3>
+
+        <div class="opcoes">
+
+            <button onclick="escolherSituacao(false)">
+                🏃 Continuar correndo pelo corredor.
+            </button>
+
+            <button onclick="escolherSituacao(true)">
+                ⚠️ Avisar um funcionário e evitar passar pelo local.
+            </button>
+
+            <button onclick="escolherSituacao(false)">
+                😶 Ignorar porque outra pessoa pode resolver.
+            </button>
+
+        </div>
+
+        <div id="respostaSituacao"></div>
+
+    </div>
+
+</section>
+
+<!-- ===== EMERGÊNCIA ===== -->
+
+<section>
+
+    <div class="emergencia">
+
+        <h2>🚨 Modo Emergência</h2>
+
+        <p>
+            Este botão é apenas um simulador educativo. Em uma emergência
+            real, procure imediatamente um adulto responsável ou os serviços
+            de emergência adequados.
+        </p>
+
+        <button class="botaoEmergencia" onclick="mostrarEmergencia()">
+            ATIVAR SIMULAÇÃO
+        </button>
+
+        <div id="alerta">
+
+            <strong>⚠️ SIMULAÇÃO ATIVADA</strong>
+
+            <br><br>
+
+            1. Mantenha a calma.<br>
+            2. Avise um professor ou funcionário.<br>
+            3. Siga as orientações da escola.<br>
+            4. Não coloque outras pessoas em risco.<br>
+            5. Em uma emergência real, procure ajuda profissional.
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===== QUIZ ===== -->
+
+<section id="quiz">
+
+    <h2 class="titulo">🧠 Quiz de Segurança</h2>
+
+    <p class="subtitulo">
+        Teste seus conhecimentos.
+    </p>
+
+    <div class="quiz">
+
+        <div class="questao">
+
+            <h3>1. O que fazer ao encontrar um fio elétrico danificado?</h3>
+
+            <button onclick="responder(this, false)">
+                Mexer no fio para descobrir o problema.
+            </button>
+
+            <button onclick="responder(this, true)">
+                Avisar um adulto responsável e evitar o local.
+            </button>
+
+            <button onclick="responder(this, false)">
+                Ignorar o problema.
+            </button>
+
+        </div>
+
+        <div class="questao">
+
+            <h3>2. Durante uma evacuação, qual atitude é adequada?</h3>
+
+            <button onclick="responder(this, true)">
+                Seguir as orientações e utilizar a rota indicada.
+            </button>
+
+            <button onclick="responder(this, false)">
+                Voltar para buscar objetos.
+            </button>
+
+            <button onclick="responder(this, false)">
+                Correr sem seguir as orientações.
+            </button>
+
+        </div>
+
+        <div class="questao">
+
+            <h3>3. Qual atitude ajuda na prevenção de doenças?</h3>
+
+            <button onclick="responder(this, false)">
+                Compartilhar objetos pessoais sem necessidade.
+            </button>
+
+            <button onclick="responder(this, true)">
+                Manter bons hábitos de higiene.
+            </button>
+
+            <button onclick="responder(this, false)">
+                Não lavar as mãos.
+            </button>
+
+        </div>
+
+        <div class="questao">
+
+            <h3>4. O que fazer quando você percebe uma situação de risco?</h3>
+
+            <button onclick="responder(this, true)">
+                Comunicar um adulto responsável.
+            </button>
+
+            <button onclick="responder(this, false)">
+                Esconder o problema.
+            </button>
+
+            <button onclick="responder(this, false)">
+                Tentar resolver sozinho mesmo que seja perigoso.
+            </button>
+
+        </div>
+
+        <button class="btnPrincipal" onclick="finalizarQuiz()">
+            📊 Ver Resultado
+        </button>
+
+        <div id="resultadoQuiz"></div>
+
+    </div>
+
+</section>
+
+<!-- ===== CHECKLIST ===== -->
+
+<section id="checklist">
+
+    <h2 class="titulo">✅ Checklist de Segurança</h2>
+
+    <p class="subtitulo">
+        Marque os itens que você considera importantes.
+    </p>
+
+    <div class="checklist">
+
+        <div class="check-item">
+            <label>
+                <input type="checkbox" onchange="atualizarChecklist()">
+                Existem rotas de saída sinalizadas.
+            </label>
+        </div>
+
+        <div class="check-item">
+            <label>
+                <input type="checkbox" onchange="atualizarChecklist()">
+                Os corredores estão livres de obstáculos.
+            </label>
+        </div>
+
+        <div class="check-item">
+            <label>
+                <input type="checkbox" onchange="atualizarChecklist()">
+                Os alunos sabem a quem pedir ajuda.
+            </label>
+        </div>
+
+        <div class="check-item">
+            <label>
+                <input type="checkbox" onchange="atualizarChecklist()">
+                Equipamentos elétricos são utilizados com segurança.
+            </label>
+        </div>
+
+        <div class="check-item">
+            <label>
+                <input type="checkbox" onchange="atualizarChecklist()">
+                A escola possui orientações para situações de emergência.
+            </label>
+        </div>
+
+        <div id="segurancaResultado">
+            0 de 5 itens selecionados.
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===== MODO ESCURO ===== -->
+
+<section>
+
+    <div class="painel">
+
+        <h2>⚙️ Personalização</h2>
+
+        <p>Escolha o modo de visualização do site.</p>
+
+        <button class="btnPrincipal" onclick="modoEscuro()">
+            🌙 Alternar Modo Escuro
+        </button>
+
+    </div>
+
+</section>
+
+</div>
+
+<!-- ===== RODAPÉ ===== -->
+
+<footer>
+
+    <p>🏫 Saúde & Segurança na Escola</p>
+
+    <p>Projeto escolar — 2026</p>
+
+    <p>
+        Nome: Katielly
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Turma: 2º EMTI
+    </p>
+
+</footer>
+
+<script>
+
+/* =========================
+   SISTEMA DE PONTOS
+========================= */
+
+let pontos = 0;
+let acoes = 0;
+
+function atualizarPainel() {
+
+    document.getElementById("pontos").textContent = pontos;
+    document.getElementById("acoes").textContent = acoes;
+
+    let nivel = "Iniciante";
+
+    if (pontos >= 8) {
+        nivel = "Especialista";
+    } else if (pontos >= 5) {
+        nivel = "Avançado";
+    } else if (pontos >= 3) {
+        nivel = "Intermediário";
+    }
+
+    document.getElementById("nivel").textContent = nivel;
+}
+
+/* =========================
+   SIMULADOR
+========================= */
+
+function escolherSituacao(correta) {
+
+    let resposta = document.getElementById("respostaSituacao");
+
+    resposta.style.display = "block";
+
+    if (correta) {
+
+        pontos += 2;
+        acoes++;
+
+        resposta.style.background = "#dcfce7";
+        resposta.style.color = "#166534";
+
+        resposta.innerHTML =
+            "✅ Boa escolha! Avisar um funcionário ajuda a prevenir acidentes.";
+
+    } else {
+
+        acoes++;
+
+        resposta.style.background = "#fee2e2";
+        resposta.style.color = "#991b1b";
+
+        resposta.innerHTML =
+            "❌ Essa atitude pode aumentar o risco de acidente. O mais seguro é avisar um funcionário.";
+
+    }
+
+    atualizarPainel();
+}
+
+/* =========================
+   EMERGÊNCIA
+========================= */
+
+function mostrarEmergencia() {
+
+    let alerta = document.getElementById("alerta");
+
+    if (alerta.style.display === "block") {
+        alerta.style.display = "none";
+    } else {
+        alerta.style.display = "block";
+
+        pontos++;
+        acoes++;
+
+        atualizarPainel();
+    }
+}
+
+/* =========================
+   QUIZ
+========================= */
+
+let respostasQuiz = 0;
+let acertosQuiz = 0;
+
+function responder(botao, correta) {
+
+    let questao = botao.parentElement;
+
+    if (questao.dataset.respondida === "true") {
+        return;
+    }
+
+    questao.dataset.respondida = "true";
+
+    let botoes = questao.querySelectorAll("button");
+
+    botoes.forEach(b => {
+        b.disabled = true;
+    });
+
+    respostasQuiz++;
+
+    if (correta) {
+
+        acertosQuiz++;
+
+        botao.style.background = "#dcfce7";
+        botao.style.borderColor = "#22c55e";
+
+    } else {
+
+        botao.style.background = "#fee2e2";
+        botao.style.borderColor = "#ef4444";
+    }
+}
+
+function finalizarQuiz() {
+
+    let resultado = document.getElementById("resultadoQuiz");
+
+    if (respostasQuiz < 4) {
+
+        resultado.innerHTML =
+            "⚠️ Responda todas as 4 perguntas primeiro.";
+
+        return;
+    }
+
+    let porcentagem = (acertosQuiz / 4) * 100;
+
+    if (acertosQuiz === 4) {
+
+        pontos += 5;
+
+        resultado.innerHTML =
+            "🏆 Excelente! Você acertou 4 de 4 perguntas!";
+
+    } else if (acertosQuiz >= 2) {
+
+        pontos += 3;
+
+        resultado.innerHTML =
+            "👏 Muito bem! Você acertou " +
+            acertosQuiz +
+            " de 4 perguntas.";
+
+    } else {
+
+        pontos += 1;
+
+        resultado.innerHTML =
+            "📚 Você acertou " +
+            acertosQuiz +
+            " de 4. Continue aprendendo!";
+
+    }
+
+    acoes++;
+
+    atualizarPainel();
+}
+
+/* =========================
+   CHECKLIST
+========================= */
+
+function atualizarChecklist() {
+
+    let caixas = document.querySelectorAll(
+        ".checklist input[type='checkbox']"
+    );
+
+    let selecionadas = 0;
+
+    caixas.forEach(caixa => {
+
+        if (caixa.checked) {
+            selecionadas++;
+        }
+
+    });
+
+    document.getElementById("segurancaResultado").textContent =
+        selecionadas + " de 5 itens selecionados.";
+
+    if (selecionadas === 5) {
+
+        document.getElementById("segurancaResultado").innerHTML =
+            "🛡️ Checklist completo! Todos os itens foram selecionados.";
+
+        pontos += 2;
+
+        atualizarPainel();
+    }
+}
+
+/* =========================
+   MODO ESCURO
+========================= */
+
+function modoEscuro() {
+
+    document.body.classList.toggle("dark");
+
+}
+
+</script>
+
+</body>
+</html>
+```
